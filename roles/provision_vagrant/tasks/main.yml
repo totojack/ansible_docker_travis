@@ -1,0 +1,11 @@
+---
+# tasks file for provision_vagrant
+
+- name: Update OS
+  package:
+    name: '*'
+    state: latest
+
+- name: Install Basic packages
+  package:
+    name: ['vim', 'zip', 'bash-completion', 'wget', 'tmux']
