@@ -1,7 +1,9 @@
+ENV['VAGRANT_EXPERIMENTAL'] = 'disks'
 Vagrant.configure("2") do |config|
   ##### VM definition #####
   config.vm.box = "centos/8"
   config.vm.box_check_update = false  
+  config.vm.disk :disk, size: "40GB", primary: true
 
   config.vm.define "centos01" do |centos01|
     centos01.vm.hostname = "centos01"
