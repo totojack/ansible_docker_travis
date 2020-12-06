@@ -5,6 +5,9 @@ Vagrant.configure("2") do |config|
   config.vm.box_check_update = false  
   config.vm.disk :disk, size: "40GB", primary: true
 
+  # define sync folders
+  config.vm.synced_folder "./", "/home/vagrant/provision", create: false, type: "rsync", rsync__auto: true, rsync__args: ["--verbose", "--archive", "-z", "--copy-links"]
+
   config.vm.define "centos01" do |centos01|
     centos01.vm.hostname = "centos01"
   end
@@ -15,9 +18,14 @@ Vagrant.configure("2") do |config|
 
   ##### VM provision #####
   config.vm.provision "ansible_local" do |ansible|
+    ansible.provisioning_path = "/home/vagrant/provision/"
+    ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
     ansible.verbose = true
-    ansible.limit = "all"
+    
+    #playbook settings
     ansible.inventory_path = 'hosts'
     ansible.playbook = "provision-vagrant.yml"
+    ansible.limit = "all"
+    ansible.galaxy_role_file = "requirements.yml"
   end
 end
