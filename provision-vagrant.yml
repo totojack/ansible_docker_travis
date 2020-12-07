@@ -10,9 +10,12 @@
     docker_service_state: started
     docker_service_enabled: true
     docker_install_compose: false
+    certdir: "./certs"
 
   roles:
     #upd vagrant img
     - provision_vagrant
     #install docker
     - geerlingguy.docker
+    #secure docker api
+    - { role: secure-docker, rootca_certificate: "{{ lookup('file', '{{ certdir }}/CA.crt') }}", server_certificate: "{{ lookup('file', '{{ certdir }}/docker.crt') }}", server_privatekey: "{{ lookup('file',  '{{ certdir }}/docker.pem') }}" }

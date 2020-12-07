@@ -1,0 +1,15 @@
+---
+# tasks file for secure-docker
+- name: "Ensure required parameters are provided"
+  assert: 
+    that: "{{ item }} != \"\""
+  with_items:
+    - rootca_certificate
+    - server_certificate
+    - server_privatekey
+
+- name: "Install Certificates"
+  include_tasks: install_certificates.yml
+
+- name: "Update Docker daemon Service"
+  include_tasks: update_docker_service.yml

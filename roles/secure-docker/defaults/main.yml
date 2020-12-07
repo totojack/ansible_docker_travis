@@ -1,0 +1,17 @@
+---
+# defaults file for secure-docker
+# Required parameters
+rootca_certificate: ""
+server_certificate: ""
+server_privatekey: ""
+# END - Required parameters
+
+# Port to use for the Docker socket
+docker_port: 2376
+
+# Where to store certificates on the remote machine
+certificates_dir: "/docker-tls"
+
+cert_filename: server-certificate.pem
+privkey_filename: server-privatekey.pem
+cacert_filename: rootca-certificate.pem
