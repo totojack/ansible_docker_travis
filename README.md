@@ -3,7 +3,9 @@
 ## Setup locale
 
 - install Vagrant: https://www.vagrantup.com/docs/installation
-- generate a self signed CA + docker keys: https://milliams.com/posts/2020/ansible-certificate-authority/
+- install serverspec plugin for Vagrant: vagrant plugin install vagrant-serverspec
+
+If you want to generate a self signed CA + docker keys: https://milliams.com/posts/2020/ansible-certificate-authority/
 
 ## Playbook
 

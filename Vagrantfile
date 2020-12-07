@@ -28,4 +28,10 @@ Vagrant.configure("2") do |config|
     ansible.limit = "all"
     ansible.galaxy_role_file = "requirements.yml"
   end
+
+  #### VM test ####
+  config.vm.provision :serverspec do |spec|
+    spec.pattern = 'test/*_spec.rb' # pattern for test files
+  end
+
 end
