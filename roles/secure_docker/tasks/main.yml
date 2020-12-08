@@ -1,7 +1,7 @@
 ---
 # tasks file for secure-docker
 - name: "Ensure required parameters are provided"
-  assert: 
+  assert:
     that: "{{ item }} != \"\""
   with_items:
     - rootca_certificate
