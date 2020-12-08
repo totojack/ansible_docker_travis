@@ -19,5 +19,5 @@
 - name: "Copy RootCA to Server (For client verification)"
   copy:
     content: "{{ rootca_certificate }}"
-    dest: "{{ certificates_dir }}/rootca-certificate.pem"
+    dest: "{{ certificates_dir }}/{{ cacert_filename }}"
   become: yes

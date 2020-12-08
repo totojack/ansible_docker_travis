@@ -1,0 +1,25 @@
+---
+- hosts: local
+  connection: local
+  become: true
+  become_user: root
+
+  vars:
+    skip_repo: true
+    skip_containerd: true
+    skip_engine: true
+    skip_cli: true
+    skip_swarm: false
+    skip_group: true
+    skip_docker_py: true
+    skip_docker_compose: true
+    docker_swarm_port: 2377
+
+  roles:
+    #enable docker swarm
+    - { role: atosatto.docker-swarm }
+
+  environment:
+    DOCKER_HOST: tcp://127.0.0.1:2376 
+    DOCKER_TLS_VERIFY: 1  
+    DOCKER_CERT_PATH: /docker-tls/

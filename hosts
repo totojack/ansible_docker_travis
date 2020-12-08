@@ -1,2 +1,14 @@
+centos01 ansible_host=192.168.10.10 ansible_ssh_private_key_file='/home/vagrant/.vagrant/machines/centos01/virtualbox/private_key' ansible_python_interpreter=/usr/bin/python3
+centos02 ansible_host=192.168.10.11 ansible_ssh_private_key_file='/home/vagrant/.vagrant/machines/centos02/virtualbox/private_key' ansible_python_interpreter=/usr/bin/python3
+
+[nodes]
+centos0[1:2]
+
 [local]
 127.0.0.1 ansible_python_interpreter=/usr/bin/python3
+
+[docker_swarm_manager]
+centos01
+
+[docker_swarm_worker]
+centos02

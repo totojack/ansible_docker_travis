@@ -14,4 +14,4 @@ certificates_dir: "/docker-tls"
 
 cert_filename: server-certificate.pem
 privkey_filename: server-privatekey.pem
-cacert_filename: rootca-certificate.pem
+cacert_filename: ca.pem
