@@ -20,6 +20,6 @@
     - { role: atosatto.docker-swarm }
 
   environment:
-    DOCKER_HOST: tcp://127.0.0.1:2376 
-    DOCKER_TLS_VERIFY: 1  
+    DOCKER_HOST: tcp://127.0.0.1:2376
+    DOCKER_TLS_VERIFY: 1
     DOCKER_CERT_PATH: /docker-tls/

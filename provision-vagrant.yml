@@ -18,4 +18,4 @@
     #install docker
     - geerlingguy.docker
     #secure docker api
-    - { role: secure-docker, rootca_certificate: "{{ lookup('file', '{{ certdir }}/CA.crt') }}", server_certificate: "{{ lookup('file', '{{ certdir }}/docker.crt') }}", server_privatekey: "{{ lookup('file',  '{{ certdir }}/docker.pem') }}" }
+    - { role: secure_docker, rootca_certificate: "{{ lookup('file', '{{ certdir }}/CA.crt') }}", server_certificate: "{{ lookup('file', '{{ certdir }}/docker.crt') }}", server_privatekey: "{{ lookup('file',  '{{ certdir }}/docker.pem') }}" }

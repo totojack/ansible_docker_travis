@@ -1,7 +1,7 @@
 - hosts: local
   connection: local
- 
-  vars: 
+
+  vars:
     path: 'certs'
 
   tasks:
@@ -36,7 +36,7 @@
         privatekey_path: "{{ docker_key.filename }}"
         common_name: test.com
         subject_alt_name: 'DNS:my.test.com'
-      register: docker_csr      
+      register: docker_csr
 
     - name: sign the CSR for the docker server
       openssl_certificate:
